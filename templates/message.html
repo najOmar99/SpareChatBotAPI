@@ -1,29 +1,37 @@
 
 <link rel= "stylesheet" type= "text/css" href="{{url_for('static', filename='messageStyle.css')}}">
+<link href="/static/fontawesome-free-5.15.3-web/css" rel="stylesheet">
 <script src="{{url_for('static', filename='chatbot_js.js')}}"></script>
 
 
-{#<div class="container">#}
-{#  <img src="/w3images/bandmember.jpg" alt="Avatar">#}
-{#  <p>Hello. How are you today?</p>#}
-{#  <span class="time-right">11:00</span>#}
-{#</div>#}
+
 {##}
 {#<div class="container darker">#}
-{#  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">#}
+{#  <img src="/Chatbot_Images/avatar_g2.jpg" alt="Avatar" class="right">#}
 {#  <p>Hey! I'm fine. Thanks for asking!</p>#}
 {#  <span class="time-left">11:01</span>#}
 {#</div>#}
-<div class="chat-popup" id="myForm">
-  <form method="get" class="form-container">
+<div class="chat-popup" id="myForm" >
+  <form method="get" action="/get_bot_response">
+{#  <form method="get" class="form-container">#}
     <h1>Speamasta chatbot</h1>
+      <div class="container darker" id="messageBlock">
+{#  <img src="/Chatbot_Images/car%20dashboard.jpg" alt="Avatar">#}
+          <i class="fas fa-tools"></i><p>Hello welcome to speamasta. how can i help you?</p>
+  <span class="time-right">{{ datetime }}</span>
+</div>
 
-    <label for="msg"><b>Message</b></label>
+{#    <label for="msg"><b>Message</b></label>#}
 {#    <textarea placeholder="Type message.." name="msg" required></textarea>#}
 
- <input placeholder="Type message.." name="msg" required>
-    <button type="submit" class="btn">Send</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <input placeholder="Type message.." name="msg" required>
+    <button class="btn btn-primary" type="submit" id="sendBtn" >Send</button>
+    <button  type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
 
+<script>
+    $('#sendBtn').on('click', function(){
+   $('#form_div').appendTo('#display_div');  // appendTo -> selector
+});
+</script>
