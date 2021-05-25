@@ -39,7 +39,7 @@ def get_bot_response():
 
 @app.route("/sendBot_answer")
 def sendBot_answer(json_data):
-    return redirect('http://localhost:8090', code=301)
+    return redirect('http://localhost:8080', code=301)
 
 
 if __name__ == '__main__':
