@@ -12,7 +12,7 @@
 {#  <span class="time-left">11:01</span>#}
 {#</div>#}
 <div class="chat-popup" id="myForm" >
-  <form method="get" action="/get_bot_response">
+  <form method="POST" action="/get_bot_response">
 {#  <form method="get" class="form-container">#}
     <h1>Speamasta chatbot</h1>
       <div class="container darker" id="messageBlock">
@@ -34,4 +34,15 @@
     $('#sendBtn').on('click', function(){
    $('#form_div').appendTo('#display_div');  // appendTo -> selector
 });
+</script>
+
+<script>
+    $.ajax({
+  type: "POST",
+  url: 'http://127.0.0.1:8080/home',
+  data: json_data,
+  success: success,
+  dataType: dataType
+});
+    console.log("done");
 </script>
